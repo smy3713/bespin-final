@@ -53,7 +53,7 @@ spec:
           emptyDir:
             medium: Memory
       nodeSelector:
-        beta.kubernetes.io/os: linux
+        type: was
 ---
 apiVersion: autoscaling/v1
 kind: HorizontalPodAutoscaler
@@ -126,7 +126,7 @@ spec:
           emptyDir:
             medium: Memory
       nodeSelector:
-        beta.kubernetes.io/os: linux
+        type: db
 ---
 apiVersion: v1
 kind: Service
@@ -197,7 +197,7 @@ spec:
           initialDelaySeconds: 180
           periodSeconds: 3
       nodeSelector:
-        beta.kubernetes.io/os: linux
+        type: was
 ---
 apiVersion: autoscaling/v1
 kind: HorizontalPodAutoscaler
@@ -281,7 +281,7 @@ spec:
           initialDelaySeconds: 30
           periodSeconds: 3
       nodeSelector:
-        beta.kubernetes.io/os: linux
+        type: was
 ---
 apiVersion: autoscaling/v1
 kind: HorizontalPodAutoscaler
@@ -365,7 +365,7 @@ spec:
           emptyDir:
             medium: Memory
       nodeSelector:
-        beta.kubernetes.io/os: linux
+        type: was
 ---
 apiVersion: autoscaling/v1
 kind: HorizontalPodAutoscaler
@@ -439,7 +439,7 @@ spec:
           emptyDir:
             medium: Memory
       nodeSelector:
-        beta.kubernetes.io/os: linux
+        type: db
 ---
 apiVersion: v1
 kind: Service
@@ -507,7 +507,7 @@ spec:
           initialDelaySeconds: 180
           periodSeconds: 3
       nodeSelector:
-        beta.kubernetes.io/os: linux
+        type: was
 ---
 apiVersion: autoscaling/v1
 kind: HorizontalPodAutoscaler
@@ -574,7 +574,7 @@ spec:
         ports:
         - containerPort: 80
       nodeSelector:
-        beta.kubernetes.io/os: linux
+        type: was
 ---
 apiVersion: autoscaling/v1
 kind: HorizontalPodAutoscaler
@@ -651,7 +651,7 @@ spec:
         - containerPort: 9090
           name: exporter
       nodeSelector:
-        beta.kubernetes.io/os: linux
+        type: was
 ---
 apiVersion: autoscaling/v1
 kind: HorizontalPodAutoscaler
@@ -726,7 +726,7 @@ spec:
               - SETUID
           readOnlyRootFilesystem: true
       nodeSelector:
-        beta.kubernetes.io/os: linux
+        type: db
 ---
 apiVersion: v1
 kind: Service
@@ -794,7 +794,7 @@ spec:
           emptyDir:
             medium: Memory
       nodeSelector:
-        beta.kubernetes.io/os: linux
+        type: was
 ---
 apiVersion: autoscaling/v1
 kind: HorizontalPodAutoscaler
@@ -883,7 +883,7 @@ spec:
           initialDelaySeconds: 180
           periodSeconds: 3
       nodeSelector:
-        beta.kubernetes.io/os: linux
+        type: was
 ---
 apiVersion: autoscaling/v1
 kind: HorizontalPodAutoscaler
@@ -959,7 +959,7 @@ spec:
           emptyDir:
             medium: Memory
       nodeSelector:
-        beta.kubernetes.io/os: linux
+        type: db
 ---
 apiVersion: v1
 kind: Service
