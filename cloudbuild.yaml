@@ -1,0 +1,20 @@
+steps:
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '-t', 'asia.gcr.io/test-gcp-335700/catalogue:latest', './catalogue']
+
+- name: "gcr.io/cloud-builders/docker"
+  args: ["push", "asia.gcr.io/test-gcp-335700/catalogue:latest"]
+
+- name: "gcr.io/cloud-builders/kubectl"
+  args: ['apply', '-n', 'sock-shop', '-f', 'complete-demo.yaml']
+  env:
+  - 'CLOUDSDK_COMPUTE_REGION=asia-northeast3'
+  - 'CLOUDSDK_CONTAINER_CLUSTER=final-cluster'
+- name: "gcr.io/cloud-builders/kubectl"
+  args: ['apply', '-n', 'sock-shop', '-f', 'basic-ingress.yaml']
+  env:
+  - 'CLOUDSDK_COMPUTE_REGION=asia-northeast3'
+  - 'CLOUDSDK_CONTAINER_CLUSTER=final-cluster'
+options:
+ workerPool:
+   'projects/test-gcp-335700/locations/asia-northeast3/workerPools/final-pri-pool'
