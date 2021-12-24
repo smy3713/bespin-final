@@ -1,9 +1,9 @@
 steps:
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '-t', 'asia.gcr.io/test-gcp-335700/catalogue:latest', './catalogue']
+  args: ['build', '-t', 'asia.gcr.io/${PROJECT_ID}/catalogue:latest', './catalogue']
 
 - name: "gcr.io/cloud-builders/docker"
-  args: ["push", "asia.gcr.io/test-gcp-335700/catalogue:latest"]
+  args: ["push", "asia.gcr.io/${PROJECT_ID}/catalogue:latest"]
 
 - name: "gcr.io/cloud-builders/kubectl"
   args: ['apply', '-n', 'sock-shop', '-f', 'complete-demo.yaml']
@@ -17,4 +17,4 @@ steps:
   - 'CLOUDSDK_CONTAINER_CLUSTER=final-cluster'
 options:
  workerPool:
-   'projects/test-gcp-335700/locations/asia-northeast3/workerPools/final-pri-pool'
+   'projects/${PROJECT_ID}/locations/asia-northeast3/workerPools/final-pri-pool'
