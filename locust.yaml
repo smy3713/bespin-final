@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: locust-master
-          image: gcr.io/shin-336100/locust-tasks:latest
+          image: asia.gcr.io/shin-336100/locust-tasks:latest
           env:
             - name: LOCUST_MODE
               value: master
