@@ -29,8 +29,7 @@ class MetricsTaskSet(TaskSet):
 
     @task
     def front(self):
-        self.client.post(
-            '/', {"deviceid": self._deviceid})
+        self.client.get("/")
 
     #@task(999)
     #def post_catalogue(self):
