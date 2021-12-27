@@ -24,7 +24,7 @@ steps:
   - 'CLOUDSDK_CONTAINER_CLUSTER=final-cluster'
 
 - name: "gcr.io/cloud-builders/kubectl"
-  args: ['apply', '-n', 'sock-shop', '-f', 'locust.yaml']
+  args: ['apply', '-f', 'locust.yaml']
   env:
   - 'CLOUDSDK_COMPUTE_REGION=asia-northeast3'
   - 'CLOUDSDK_CONTAINER_CLUSTER=final-cluster'
