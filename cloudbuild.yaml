@@ -6,10 +6,17 @@ steps:
   args: ["push", "asia.gcr.io/${PROJECT_ID}/catalogue:latest"]
 
 - name: "gcr.io/cloud-builders/kubectl"
+  args: ['delete', '-n', 'sock-shop', '-f', 'complete-demo.yaml']
+  env:
+  - 'CLOUDSDK_COMPUTE_REGION=asia-northeast3'
+  - 'CLOUDSDK_CONTAINER_CLUSTER=final-cluster'
+
+- name: "gcr.io/cloud-builders/kubectl"
   args: ['apply', '-n', 'sock-shop', '-f', 'complete-demo.yaml']
   env:
   - 'CLOUDSDK_COMPUTE_REGION=asia-northeast3'
   - 'CLOUDSDK_CONTAINER_CLUSTER=final-cluster'
+
 - name: "gcr.io/cloud-builders/kubectl"
   args: ['apply', '-n', 'sock-shop', '-f', 'basic-ingress.yaml']
   env:
