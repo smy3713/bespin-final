@@ -31,6 +31,10 @@ class MetricsTaskSet(TaskSet):
     def front(self):
         self.client.get("/")
 
+    @task
+    def catalogue(self):
+        self.client.get("/catalogue.html")
+
     #@task(999)
     #def post_catalogue(self):
     #    self.client.post(
