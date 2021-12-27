@@ -27,15 +27,15 @@ class MetricsTaskSet(TaskSet):
     def on_start(self):
         self._deviceid = str(uuid.uuid4())
 
-    @task(1)
-    def cart(self):
+    @task
+    def front(self):
         self.client.post(
-            '/basket.html', {"deviceid": self._deviceid})
+            '/', {"deviceid": self._deviceid})
 
-    @task(999)
-    def post_catalogue(self):
-        self.client.post(
-            "/category.html", {"deviceid": self._deviceid, "timestamp": datetime.now()})
+    #@task(999)
+    #def post_catalogue(self):
+    #    self.client.post(
+    #        "/category.html", {"deviceid": self._deviceid, "timestamp": datetime.now()})
 
 
 class MetricsLocust(HttpLocust):
