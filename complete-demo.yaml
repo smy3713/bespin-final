@@ -162,7 +162,7 @@ spec:
     spec:
       containers:
       - name: catalogue
-        image: asia.gcr.io/shin-336100/catalogue:latest
+        image: asia.gcr.io/door-336400/catalogue:latest
         command: ["/app"]
         args:
         - -port=80
